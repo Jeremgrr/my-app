@@ -34,3 +34,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## Developer Goals for 'ItsStockBro'
+
+## Current Development
+
+- Implement onClick for each vehicle which opens individual Vehicle page
+- Implement Reviews & Comment Section for Individual pages
+- Complete Search bar to search between vehicles in the Database
+
+## Future Developement
+- Implement Login/Logout for Accounts
+- Allow Users to Post their personal Vehicles
+- Like Feature for user uploaded posts
+- Comment Feature for user uploaded posts
+- 
+- 
