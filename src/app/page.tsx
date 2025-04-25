@@ -1,5 +1,6 @@
-import React from 'react';
-import SearchBar from './toolbar';
+'use client'
+import React, { useState } from 'react';
+//import SearchBar from './toolbar';
 
 
 const CARS = [
@@ -18,35 +19,64 @@ const CARS = [
  
 ];
 
-const Card = ({ id, brand, make, year, msrp, specialty,img}) => (
+function SearchBar({}) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+ 
+
+  const filteredData = CARS.filter(car =>
+    car.make.toLowerCase().includes(searchTerm.toLowerCase()));
+  
+  return (
+      <><h3> ItsStockBro </h3><form>
+        <div className="p-4 ">
+
+          <input type="text" placeholder="Search by make..." className="mb-6 p-2 border border-gray-300 rounded-xl w-full max-w-sm" value={searchTerm} onChange={(e) =>setSearchTerm(e.target.value)} />
+          <div className="flex flex-wrap justify-center gap-4">
+            {filteredData.map(car => (
+              <Card key={car.id} car={car} />
+            ))}
+          </div>
+          
+          <label>
+            <input type="checkbox" />
+            {' '}
+            Only show products in stock
+          </label>
+
+        </div>
+
+       
+      </form></>
+    );
+  }
+
+
+const Card = ({car}) => (
   <div className="bg-white shadow-md rounded-2xl p-4 m-2 w-72">
     <img
-      src={img}
-      alt={id}
-      className="w-full h-40 object-cover rounded-xl mb-4"
+      src={car.img}
+      alt={car.make}
+      className="w-full h-40 object-cover rounded-xl mb-3"
     />
-    <p className="text-gray-800"><strong>Brand</strong> {brand}</p>
-    <p className="text-gray-800"><strong>Make</strong> {make}</p>
-    <p className="text-gray-800"><strong>Year</strong> {year}</p>
-    <p className="text-gray-800"><strong>Msrp</strong> {msrp}</p>
+    <h2 className="text-xl font-bold">{car.make}</h2>
+    <p className="text-gray-800"><strong>Brand</strong> {car.brand}</p>
+    <p className="text-gray-800"><strong>Make</strong> {car.make}</p>
+    <p className="text-gray-800"><strong>Year</strong> {car.year}</p>
+    <p className="text-gray-800"><strong>Msrp</strong> {car.msrp}</p>
+
 
 
     <div>
       <p className="text-gray-800 font-semibold mt-2">Specialty:</p>
       <ul className="list-disc list-inside text-gray-700">
-      <p>{specialty}</p>
+      <p>{car.specialty}</p>
 
       </ul>
     </div>
   </div>
 );
 
-const CardsGrid = () => (
-  <><SearchBar></SearchBar><div className="flex flex-wrap justify-center gap-4 p-4">
-    {CARS.map((item) => (
-      <Card key={item.id} {...item} />
-    ))}
-  </div></>
-);
 
-export default CardsGrid;
+
+export default SearchBar;
