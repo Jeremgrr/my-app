@@ -19,7 +19,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Troubleshooting 
 
+If you're receiving errors when attempting 'npm run dev' try the following:
+    - Uninstall Next.js 'npm unistall next' if next.js is already installed
+    - Install/reinstall Next.js 'npm install next@latest react@latest react-dom@latest', when attempting to run code you make be prompted to install next.js, choose the Yes (Y) option
+    - Install React Router 'npm install react-router-dom'
+    - Ensure code doesn't contain any errors 
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
